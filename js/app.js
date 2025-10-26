@@ -2,9 +2,16 @@ let amigos = [];
 
 function adicionar() {
     let nomeAmigo = document.getElementById('nome-amigo').value;
+    // Converte o nome para maiúsculo
+    nomeAmigo = nomeAmigo.toUpperCase();
 
     if(nomeAmigo == '') {
         alert('Por favor, insira um nome válido.');
+        return;
+    }
+
+    if(amigos.includes(nomeAmigo)){
+        alert('Este amigo já foi adicionado.');
         return;
     }
 
@@ -20,6 +27,7 @@ function sortear(){
         alert('Adicione pelo menos 3 amigos para realizar o sorteio!');
         return;
     }
+
 
     // Embaralhar o array de amigos
     let embaralhado = amigos.slice().sort(() => Math.random() - 0.5);
